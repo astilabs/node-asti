@@ -1,0 +1,35 @@
+{
+  "name": "node-asti",
+  "version": "0.0.0",
+  "description": "ASTi internal nodejs library for reusability",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/astilabs/node-asti.git"
+  },
+  "author": "Ross Kukulinski <rossk@labs.asti-usa.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/astilabs/node-asti/issues"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "lib"
+    }
+  },
+  "homepage": "https://github.com/astilabs/node-asti",
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "should": "~3.1.2",
+    "grunt": "~0.4.2",
+    "grunt-mocha-test": "~0.8.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
