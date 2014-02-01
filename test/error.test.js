@@ -1,5 +1,4 @@
 var asti = require('../');
-var should = require('should');
 describe('node-asti.error', function() {
 
   describe('api.VocError', function() {
