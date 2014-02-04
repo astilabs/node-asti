@@ -5,7 +5,7 @@ var _ = require('underscore');
 var api = {};
 module.exports = api;
 
-var LIB_DIR = './lib/';
+var LIB_DIR = __dirname+'/lib/';
 
 // Get all functions in lib directory
 var files = fs.readdirSync(LIB_DIR);
