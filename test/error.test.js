@@ -1,15 +1,15 @@
 var asti = require('../');
 describe('node-asti.error', function() {
 
-  describe('api.VocError', function() {
-    var VocError = asti.error.VocError;
+  describe('api.AstiError', function() {
+    var AstiError = asti.error.AstiError;
     var err;
     beforeEach(function() {
-      err = new VocError('woops!', 'testError', {det: 'hi'}, {hello:'world'});
+      err = new AstiError('woops!', 'testError', {det: 'hi'}, {hello:'world'});
     });
 
-    it('should create a new VocError', function() {
-      err.should.be.instanceOf(VocError);
+    it('should create a new AstiError', function() {
+      err.should.be.instanceOf(AstiError);
     });
 
     it('should have a message', function() {

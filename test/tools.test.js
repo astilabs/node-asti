@@ -22,7 +22,7 @@ describe('node-asti.tools', function() {
       assert(!isObject('hello there!'));
     });
 
-    it('should return false if input is Number', function() {
+    it('should return false if input is number', function() {
       assert(!isObject(55));
     });
   });
