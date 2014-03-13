@@ -3,12 +3,10 @@ var should = require('should');
 
 describe('node-asti.statsd', function() {
   var statsd;
+  var timer;
   // statsD Metrics
   var config = {};
   config.statsd = {
-    host: '162.209.78.81',
-    port: 8125,
-    enabled: true
   };
   config.statsd.prefix = 'node-asti.statsd';
 
@@ -19,6 +17,17 @@ describe('node-asti.statsd', function() {
   describe('contructor', function() {
     it('should create a statsd object', function() {
       should.exist(statsd);
+      should.exist(statsd.createTimer);
+      should.exist(statsd.increment);
+      should.exist(statsd.decrement);
+      should.exist(statsd.gauge);
+      should.exist(statsd.set);
+    });
+
+    it('should create a timer', function() {
+      timer = statsd.createTimer('node-asti.statsd.timer');
+      should.exist(timer);
+      should.exist(timer.stop);
     });
   });
 });
