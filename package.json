@@ -28,7 +28,8 @@
     "underscore": "~1.5.2",
     "bunyan": "~0.22.1",
     "lynx": "~0.0.11",
-    "toobusy": "~0.2.4"
+    "toobusy": "~0.2.4",
+    "eventemitter2": "~0.4.13"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
