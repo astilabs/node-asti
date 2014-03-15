@@ -2,7 +2,7 @@ var asti = require('../');
 describe('node-asti.error', function() {
 
   describe('api.AstiError', function() {
-    var AstiError = asti.error.AstiError;
+    var AstiError = asti.error();
     var err;
     beforeEach(function() {
       err = new AstiError('woops!', 'testError', {det: 'hi'}, {hello:'world'});

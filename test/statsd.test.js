@@ -4,17 +4,24 @@ var should = require('should');
 describe('node-asti.statsd', function() {
   var statsd;
   var timer;
-  // statsD Metrics
   var config = {};
-  config.statsd = {
+  config = {
+    host: 'localhost',
+    port: 80,
+    prefix: 'node-asti.statsd'
   };
-  config.statsd.prefix = 'node-asti.statsd';
 
   beforeEach(function() {
     statsd = asti.statsd(config);
   });
 
   describe('contructor', function() {
+    it('should fail to create statsd object with no config', function() {
+      (function(){
+        asti.statsd();
+      }).should.throw('ConfigNotProvided');
+    });
+
     it('should create a statsd object', function() {
       should.exist(statsd);
       should.exist(statsd.createTimer);

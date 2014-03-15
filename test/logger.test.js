@@ -5,7 +5,7 @@ var should = require('should');
 describe('node-asti.logger', function() {
   var log;
   var config = {};
-  config.logger = {
+  config = {
     name: 'node-asti.logger',
     streams: [
       {
@@ -39,6 +39,12 @@ describe('node-asti.logger', function() {
   });
 
   describe('contructor', function() {
+    it('should fail to create a logger without config', function() {
+      (function(){
+        asti.logger();
+      }).should.throw('ConfigNotProvided');
+    });
+
     it('should create a log with info type', function() {
       log.info('should create a log with info type');
 
