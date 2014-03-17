@@ -35,17 +35,12 @@ describe('node-asti.mail', function() {
   var log = asti.logger(logger);
   config.logger = log;
 
-  beforeEach(function() {
-    //mail = asti.mail();
-  });
-
   describe('contructor', function() {
     it('should fail to initialize without connection', function(done) {
       var settings = {};
 
       (function(){
         mail = asti.mail(settings);
-        //mail = Mail(config);
       }).should.throw('NoMailConnectionProvided');
       done();
     });
@@ -67,7 +62,7 @@ describe('node-asti.mail', function() {
       done();
     });
 
-    it.skip('should fail to initialize with incorrect templates path', function(done) {
+    it('should fail to initialize with incorrect templates path', function(done) {
       var settings = {};
       settings.connection = {
         host: 'smtp.sendgrid.net',
@@ -87,19 +82,20 @@ describe('node-asti.mail', function() {
     });
 
     it('should initialize', function(done) {
-      (function(){
-        mail = asti.mail(config);
-      }).should.not.throw();
-      done();
+      mail = asti.mail(config, function(err) {
+        should.not.exist(err);
+        done();
+      });
     });
   });
   describe('api.send', function() {
     it('should fail to send email without template', function(done) {
-      mail = asti.mail(config);
-      mail.send('', locals, function(err) {
-        should.exist(err);
-        err.message.should.eql('NoEmailTemplateProvided');
-        done();
+      mail = asti.mail(config, function() {
+        mail.send('', locals, function(err) {
+          should.exist(err);
+          err.message.should.eql('NoEmailTemplateProvided');
+          done();
+        });
       });
     });
 
@@ -114,21 +110,23 @@ describe('node-asti.mail', function() {
     });
 
     it('should fail to send email without locals', function(done) {
-      mail = asti.mail(config);
-      mail.send('node-asti.mail.test', '', function(err) {
-        should.exist(err);
-        err.message.should.eql('NoEmailLocalsProvided');
-        done();
+      mail = asti.mail(config, function() {
+        mail.send('node-asti.mail.test', '', function(err) {
+          should.exist(err);
+          err.message.should.eql('NoEmailLocalsProvided');
+          done();
+        });
       });
     });
 
     it('should fail to send email without mail options', function(done) {
       var mailOptions = {};
-      mail = asti.mail(config);
-      mail.send('node-asti.mail.test', mailOptions, function(err) {
-        should.exist(err);
-        err.message.should.eql('NoEmailOptionsProvided');
-        done();
+      mail = asti.mail(config, function() {
+        mail.send('node-asti.mail.test', mailOptions, function(err) {
+          should.exist(err);
+          err.message.should.eql('NoEmailOptionsProvided');
+          done();
+        });
       });
     });
 
