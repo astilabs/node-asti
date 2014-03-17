@@ -1,6 +1,6 @@
 {
   "name": "node-asti",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ASTi internal nodejs library for reusability",
   "main": "index.js",
   "directories": {
