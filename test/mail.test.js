@@ -41,7 +41,7 @@ describe('node-asti.mail', function() {
 
       (function(){
         mail = asti.mail(settings);
-      }).should.throw('NoMailConnectionProvided');
+      }).should.throw('ConfigMailConnectionNotProvided');
       done();
     });
 
@@ -58,7 +58,7 @@ describe('node-asti.mail', function() {
 
       (function(){
         mail = asti.mail(settings);
-      }).should.throw('NoEmailTemplatesPathProvided');
+      }).should.throw('ConfigEmailTemplatesPathNotProvided');
       done();
     });
 
@@ -93,7 +93,7 @@ describe('node-asti.mail', function() {
       mail = asti.mail(config, function() {
         mail.send('', locals, function(err) {
           should.exist(err);
-          err.message.should.eql('NoEmailTemplateProvided');
+          err.message.should.eql('EmailTemplateNotProvided');
           done();
         });
       });
@@ -113,7 +113,7 @@ describe('node-asti.mail', function() {
       mail = asti.mail(config, function() {
         mail.send('node-asti.mail.test', '', function(err) {
           should.exist(err);
-          err.message.should.eql('NoEmailLocalsProvided');
+          err.message.should.eql('EmailLocalsNotProvided');
           done();
         });
       });
@@ -124,7 +124,7 @@ describe('node-asti.mail', function() {
       mail = asti.mail(config, function() {
         mail.send('node-asti.mail.test', mailOptions, function(err) {
           should.exist(err);
-          err.message.should.eql('NoEmailOptionsProvided');
+          err.message.should.eql('EmailOptionsNotProvided');
           done();
         });
       });
