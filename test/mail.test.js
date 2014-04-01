@@ -7,7 +7,7 @@ describe('node-asti.mail', function() {
   config = {};
   config.service = 'SendGrid';
   config.templates = {};
-  config.templates.path = '/../test/email-templates';
+  config.templates.path = __dirname+'/email-templates';
   config.connection = {
     host: 'smtp.sendgrid.net',
     user: 'fakeUser',
