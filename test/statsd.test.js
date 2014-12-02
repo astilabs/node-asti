@@ -1,24 +1,24 @@
-var asti = require('../');
+var yodlr = require('../');
 var should = require('should');
 
-describe('node-asti.statsd', function() {
+describe('node-yodlr.statsd', function() {
   var statsd;
   var timer;
   var config = {};
   config = {
     host: 'localhost',
     port: 80,
-    prefix: 'node-asti.statsd'
+    prefix: 'node-yodlr.statsd'
   };
 
   beforeEach(function() {
-    statsd = asti.statsd(config);
+    statsd = yodlr.statsd(config);
   });
 
   describe('contructor', function() {
     it('should fail to create statsd object with no config', function() {
       (function(){
-        asti.statsd();
+        yodlr.statsd();
       }).should.throw('ConfigNotProvided');
     });
 
@@ -32,7 +32,7 @@ describe('node-asti.statsd', function() {
     });
 
     it('should create a timer', function() {
-      timer = statsd.createTimer('node-asti.statsd.timer');
+      timer = statsd.createTimer('node-yodlr.statsd.timer');
       should.exist(timer);
       should.exist(timer.stop);
     });

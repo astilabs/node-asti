@@ -1,4 +1,4 @@
-node-asti
+node-yodlr
 =========
 
-General set of ASTI NodeJS Modules
+General set of Yodlr NodeJS Modules

@@ -1,11 +1,11 @@
-var asti = require('../');
+var yodlr = require('../');
 var assert = require('assert');
 var should = require('should');
-describe('node-asti.tools', function() {
+describe('node-yodlr.tools', function() {
 
   describe('api.isObject', function() {
 
-    var isObject = asti.tools.isObject;
+    var isObject = yodlr.tools.isObject;
     it('should return true if input is object', function() {
       assert(isObject({}));
     });
@@ -28,7 +28,7 @@ describe('node-asti.tools', function() {
   });
 
   describe('api.isEmpty', function() {
-    var isEmpty = asti.tools.isEmpty;
+    var isEmpty = yodlr.tools.isEmpty;
     it('should return true if object is empty', function() {
       assert(isEmpty({}));
     });
@@ -48,7 +48,7 @@ describe('node-asti.tools', function() {
   });
 
   describe('api.clone', function() {
-    var clone = asti.tools.clone;
+    var clone = yodlr.tools.clone;
 
     var obj, obj2, num, str;
 
@@ -111,7 +111,7 @@ describe('node-asti.tools', function() {
   });
 
   describe('api.uuid', function() {
-    var uuid = asti.tools.uuid;
+    var uuid = yodlr.tools.uuid;
     it('should generate a uuid', function() {
       should.exist(uuid());
     });

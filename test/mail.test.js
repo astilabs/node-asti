@@ -1,7 +1,7 @@
-var asti = require('../');
+var yodlr = require('../');
 var should = require('should');
 
-describe('node-asti.mail', function() {
+describe('node-yodlr.mail', function() {
   var mail;
   var config = {};
   config = {};
@@ -17,14 +17,14 @@ describe('node-asti.mail', function() {
   };
   config.send = false;
   var locals = {
-    supportDomain: 'labs.asti-usa.com',
-    serviceName: 'Node-ASTi',
-    email: 'dev@labs.asti-usa.com',
-    from: 'dev@labs.asti-usa.com',
+    supportDomain: 'getyodlr.com',
+    serviceName: 'node-yodlr',
+    email: 'dev@getyodlr.com',
+    from: 'dev@getyodlr.com',
     subject: 'mail.test'
   };
   var logger = {
-    name: 'node-asti.mail',
+    name: 'node-yodlr.mail',
     streams: [
       {
       level: 'debug',
@@ -32,7 +32,7 @@ describe('node-asti.mail', function() {
       }
     ],
   };
-  var log = asti.logger(logger);
+  var log = yodlr.logger(logger);
   config.logger = log;
 
   describe('contructor', function() {
@@ -40,7 +40,7 @@ describe('node-asti.mail', function() {
       var settings = {};
 
       (function(){
-        mail = asti.mail(settings);
+        mail = yodlr.mail(settings);
       }).should.throw('ConfigMailConnectionNotProvided');
       done();
     });
@@ -57,7 +57,7 @@ describe('node-asti.mail', function() {
       settings.templates = {};
 
       (function(){
-        mail = asti.mail(settings);
+        mail = yodlr.mail(settings);
       }).should.throw('ConfigEmailTemplatesPathNotProvided');
       done();
     });
@@ -74,7 +74,7 @@ describe('node-asti.mail', function() {
       settings.templates = {};
       settings.templates.path = '/../test/email-templatesError';
 
-      mail = asti.mail(settings, function(err) {
+      mail = yodlr.mail(settings, function(err) {
         should.exist(err);
         err.message.should.eql('EmailTemplatesError');
         done();
@@ -82,7 +82,7 @@ describe('node-asti.mail', function() {
     });
 
     it('should initialize', function(done) {
-      mail = asti.mail(config, function(err) {
+      mail = yodlr.mail(config, function(err) {
         should.not.exist(err);
         done();
       });
@@ -90,7 +90,7 @@ describe('node-asti.mail', function() {
   });
   describe('api.send', function() {
     it('should fail to send email without template', function(done) {
-      mail = asti.mail(config, function() {
+      mail = yodlr.mail(config, function() {
         mail.send('', locals, function(err) {
           should.exist(err);
           err.message.should.eql('EmailTemplateNotProvided');
@@ -100,8 +100,8 @@ describe('node-asti.mail', function() {
     });
 
     it('should fail to send email with inexistant template', function(done) {
-      mail = asti.mail(config, function() {
-        mail.send('node-asti.mail.noTemplate', locals, function(err) {
+      mail = yodlr.mail(config, function() {
+        mail.send('node-yodlr.mail.noTemplate', locals, function(err) {
           should.exist(err);
           err.message.should.eql('EmailTemplateError');
           done();
@@ -110,8 +110,8 @@ describe('node-asti.mail', function() {
     });
 
     it('should fail to send email without locals', function(done) {
-      mail = asti.mail(config, function() {
-        mail.send('node-asti.mail.test', '', function(err) {
+      mail = yodlr.mail(config, function() {
+        mail.send('node-yodlr.mail.test', '', function(err) {
           should.exist(err);
           err.message.should.eql('EmailLocalsNotProvided');
           done();
@@ -121,8 +121,8 @@ describe('node-asti.mail', function() {
 
     it('should fail to send email without mail options', function(done) {
       var mailOptions = {};
-      mail = asti.mail(config, function() {
-        mail.send('node-asti.mail.test', mailOptions, function(err) {
+      mail = yodlr.mail(config, function() {
+        mail.send('node-yodlr.mail.test', mailOptions, function(err) {
           should.exist(err);
           err.message.should.eql('EmailOptionsNotProvided');
           done();
@@ -131,8 +131,8 @@ describe('node-asti.mail', function() {
     });
 
     it('should send an email', function(done) {
-      mail = asti.mail(config, function() {
-        mail.send('node-asti.mail.test', locals, function(err) {
+      mail = yodlr.mail(config, function() {
+        mail.send('node-yodlr.mail.test', locals, function(err) {
           should.not.exist(err);
           done();
         });

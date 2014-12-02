@@ -1,15 +1,15 @@
-var asti = require('../');
-describe('node-asti.error', function() {
+var yodlr = require('../');
+describe('node-yodlr.error', function() {
 
-  describe('api.AstiError', function() {
-    var AstiError = asti.error();
+  describe('api.YodlrError', function() {
+    var YodlrError = yodlr.error();
     var err;
     beforeEach(function() {
-      err = new AstiError('woops!', 'testError', {det: 'hi'}, {hello:'world'});
+      err = new YodlrError('woops!', 'testError', {det: 'hi'}, {hello:'world'});
     });
 
-    it('should create a new AstiError', function() {
-      err.should.be.instanceOf(AstiError);
+    it('should create a new YodlrError', function() {
+      err.should.be.instanceOf(YodlrError);
     });
 
     it('should have a message', function() {

@@ -1,7 +1,7 @@
 {
-  "name": "node-asti",
-  "version": "0.2.0",
-  "description": "ASTi internal nodejs library for reusability",
+  "name": "node-yodlr",
+  "version": "0.3.0",
+  "description": "Yodlr internal nodejs library for reusability",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,19 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/astilabs/node-asti.git"
+    "url": "git://github.com/yodlr/node-yodlr.git"
   },
-  "author": "Ross Kukulinski <rossk@labs.asti-usa.com>",
+  "author": "Ross Kukulinski <ross@getyodlr.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/astilabs/node-asti/issues"
+    "url": "https://github.com/yodlr/node-yodlr/issues"
   },
   "config": {
     "blanket": {
       "pattern": "lib"
     }
   },
-  "homepage": "https://github.com/astilabs/node-asti",
+  "homepage": "https://github.com/yodlr/node-yodlr",
   "dependencies": {
     "async": "0.2.10",
     "bunyan": "~0.22.1",
